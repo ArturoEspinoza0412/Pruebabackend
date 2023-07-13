@@ -1,6 +1,6 @@
-import IResponse from '../interfaces/response.interface';
-import productModel from '../models/product.model';
-import IProduct from '../interfaces/product.interface';
+import IResponse from '../interfaces/respuesta.interface';
+import productModel from '../models/modelo.producto';
+import IProduct from '../interfaces/interface.productos';
 import logger from '../../lib/logger';
 
 export default class ProductController {

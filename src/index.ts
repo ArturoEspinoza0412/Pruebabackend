@@ -1,4 +1,4 @@
-import Server from './class/server.class'
+import Server from './class/clase.servidor'
 import cors from 'cors'
 import express from 'express'
 

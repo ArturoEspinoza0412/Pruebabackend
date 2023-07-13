@@ -1,32 +1,32 @@
 import { Request, Response, Router } from "express";
-import ProductController from './controllers/product.controller';
+import ProductController from './controllers/controladora.producto';
 
-const productRoutes = Router();
-const productCtrl = new ProductController
+const rutaProductos = Router();
+const controldeProductos = new ProductController
 
-productRoutes.post('/register', async (req: Request, res: Response) => { 
+rutaProductos.post('/register', async (req: Request, res: Response) => { 
     const body = req.body
     try{
-        const response = await productCtrl.createProduct(body)
+        const response = await controldeProductos.createProduct(body)
         return res.status(response.code).json(response)
     }catch(err: any){
         return res.status(err.code ? err.code : 500).json(err)
     }
 })
 
-productRoutes.get('/consultCategory', async( req: Request, res: Response)=>{
+rutaProductos.get('/consultCategory', async( req: Request, res: Response)=>{
     const value: any =req.query.category
     try{
-        const response = await productCtrl.readProductByCategory(value)
+        const response = await controldeProductos.readProductByCategory(value)
         return res.status(response.code).json(response)
     }catch(err: any){
         return res.status(err.code ? err.code : 500).json(err)
     }
 })
-productRoutes.get('/consultName', async( req: Request, res: Response)=>{
+rutaProductos.get('/consultName', async( req: Request, res: Response)=>{
     const value: any =req.query.category
     try{
-        const response = await productCtrl.readProductByName(value)
+        const response = await controldeProductos.readProductByName(value)
         return res.status(response.code).json(response)
     }catch(err: any){
         return res.status(err.code ? err.code : 500).json(err)
